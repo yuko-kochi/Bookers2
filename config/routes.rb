@@ -5,7 +5,7 @@ devise_for :users
  get "homes/about"
  resources :books, only: [:create, :index, :show, :destroy]
  
- resources :users, only: [:show]
+ resources :users, only: [:index, :show, :destroy, :edit]
 
 
 end
