@@ -1,12 +1,25 @@
-<h1>User info</h1>
- <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+    <% if @book.errors.any? %>
+     <div id= error_explanation >
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+      <ul>
+       <% @book.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+      </ul>
+    </di>
+   <% end %>
 
+ <h1>User info</h1>
+    <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
  <table>
   <tr>
    <td>name</td>
    <td><%= @user.name %></td>
   </tr>
-
+    <tr>
+   <td>introduction</td>
+   <td><%= @user.introduction %></td>
+  </tr>
  </table>
 
 <%= render 'books/new', book: @book %>
@@ -40,6 +53,4 @@
    <% end %>
   </tbody>
 </table>
-
-
 
