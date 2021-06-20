@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @book = Book.new
-    @users = User.all.reverse_order
+    @users = User.all
     @user = current_user
   end
 
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user == current_user
     render "edit"
     else
-    redirect_to users_path(@user)
+    redirect_to current_user
     end
   end
 
